@@ -1,0 +1,27 @@
+<html>
+
+	<head>
+		<title>Livestream</title>
+		<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+		<link href='https://fonts.googleapis.com/css?family=B612 Mono' rel='stylesheet'>
+
+		<body>
+			<script src="assets/mpegts.js"></script>
+			<video id="videoElement"></video>
+			<script>
+				if (mpegts.getFeatureList().mseLivePlayback) {
+									var videoElement = document.getElementById('videoElement');
+									var player = mpegts.createPlayer({
+														type: 'flv',  // could also be mpegts, m2ts, flv
+														isLive: true,
+														url: 'https://live.c.yukino.app/live/livestream.flv'
+													});
+									player.attachMediaElement(videoElement);
+									player.load();
+									player.play();
+								}
+			</script>
+		</body>
+	</head>
+
+</html>
